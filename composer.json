@@ -1,0 +1,25 @@
+{
+    "name": "liquorvicar/php-oxford-advent-of-code-skeleton",
+    "require-dev": {
+        "phpunit/phpunit": "^6.0"
+    },
+    "authors": [
+        {
+            "name": "Andy Clyde",
+            "email": "a.clyde@elsevier.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "AdventOfCode\\": ["src/", "test/"]
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit --testdox",
+        "one": "php run.php -pone",
+        "two": "php run.php -ptwo"
+    },
+    "require": {
+        "monolog/monolog": "^2.3"
+    }
+}
