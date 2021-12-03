@@ -13,7 +13,7 @@ if (!file_exists($inputFilename)) {
     throw new Exception('Cannot find input file.');
 }
 
-$input = file($inputFilename);
+$input = array_map('trim', file($inputFilename));
 
 $logger = new Monolog\Logger('Advent of Code challenge');
 $logger->pushHandler(new Monolog\Handler\StreamHandler('php://stdout', Monolog\Logger::DEBUG));
