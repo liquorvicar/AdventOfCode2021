@@ -56,4 +56,27 @@ class Answer08Test extends BaseTest
         );
         $this->assertEquals($expected, $candidates);
     }
+
+    /**
+     * @param $mapping
+     * @param $signals
+     * @param $outputs
+     * @param $digits
+     * @param $expected
+     * @dataProvider dataForFindMapping
+     */
+    public function testFindMapping($mapping, $signals, $outputs, $digits, $expected)
+    {
+        $result = $this->answer->findMapping($mapping, $signals, $outputs, $digits);
+        $this->assertEquals($expected, $result);
+    }
+
+    public function dataForFindMapping()
+    {
+        return [
+            [[], [], [], [], 0],
+            [['a' => 'b', 'b' => 'a'], ['ab', 'ba'], ['ab', 'ba'], ['abc', 'ab'], 11],
+            [['a' => ['b', 'c'], 'b' => 'a', 'c' => ['b', 'a']], ['cb', 'ba'], ['cb', 'bc'], ['ac', 'ab'], 11],
+        ];
+    }
 }

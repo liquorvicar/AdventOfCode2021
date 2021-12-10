@@ -54,13 +54,13 @@ class Answer08 extends Base
     public function decodeOutput(array $signals, array $outputs)
     {
         $digits = $this->digits;
-        $candidates = $this->findMappingCandidates(array_merge($signals, $digits));
+        $candidates = $this->findMappingCandidates(array_merge($signals, $outputs));
         $output = $this->findMapping($candidates, $signals, $outputs, $digits);
         $this->logger->debug('Output decoded!', ['output' => $output]);
         return $output;
     }
 
-    private function findMapping($mapping, $signals, $outputs, $digits) {
+    public function findMapping($mapping, $signals, $outputs, $digits) {
         $unmapped = array_filter($mapping, function ($possibles) {
             return is_array($possibles);
         });
@@ -69,6 +69,9 @@ class Answer08 extends Base
                 return is_null($possibles);
             });
             if (!empty($unmapped)) {
+                return 0;
+            }
+            if (count(array_unique(array_values($mapping))) !== count($mapping)) {
                 return 0;
             }
             $mappedSignals = $this->mapInput($signals, $mapping);
@@ -120,6 +123,9 @@ class Answer08 extends Base
                 }
             }
             $result = $this->findMapping($newMapping, $signals, $outputs, $digits);
+            if ($result > 0) {
+                return $result;
+            }
         }
         return $result;
     }
