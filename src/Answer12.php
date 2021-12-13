@@ -67,6 +67,7 @@ class Answer12 extends Base
             return $paths;
         }
         $cave = $caves[$nextCave];
+        $exits = $cave->getExits($canVisitTwice);
         if ($cave->isSmallCave() && $cave->isVisited()) {
             if (!$canVisitTwice) {
                 return $paths;
@@ -74,7 +75,7 @@ class Answer12 extends Base
                 $canVisitTwice = false;
             }
         }
-        foreach ($cave->getExits($canVisitTwice) as $exit) {
+        foreach ($exits as $exit) {
             $newCave = clone $cave;
             $newCave->visit();
             $newCave->useExit($exit);

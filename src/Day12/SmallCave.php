@@ -12,6 +12,9 @@ class SmallCave extends Cave
 
     public function getExits($canVisitTwice)
     {
+        if ($canVisitTwice) {
+            return $this->exits;
+        }
         return !$this->visited ? $this->exits : [];
     }
 }

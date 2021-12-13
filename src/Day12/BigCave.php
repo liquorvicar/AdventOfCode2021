@@ -12,6 +12,9 @@ class BigCave extends Cave
 
     public function getExits($canVisitTwice)
     {
+        if ($canVisitTwice) {
+            return $this->exits;
+        }
         return array_values(array_diff($this->exits, $this->usedExits));
     }
 }
