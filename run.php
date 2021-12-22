@@ -16,7 +16,7 @@ if (!file_exists($inputFilename)) {
 $input = array_map('trim', file($inputFilename));
 
 $logger = new Monolog\Logger('Advent of Code challenge');
-$logger->pushHandler(new Monolog\Handler\StreamHandler('php://stdout', Monolog\Logger::DEBUG));
+$logger->pushHandler(new Monolog\Handler\StreamHandler('debug.log', Monolog\Logger::DEBUG));
 $class = sprintf('AdventOfCode\Answer%02d', $day);
 $answer = new $class($logger);
 
