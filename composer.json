@@ -1,11 +1,7 @@
 {
-    "name": "liquorvicar/php-oxford-advent-of-code-skeleton",
-    "authors": [
-        {
-            "name": "Andy Clyde",
-            "email": "a.clyde@elsevier.com"
-        }
-    ],
+    "name": "liquorvicar/advent-of-code-2021",
+    "description": "Personal repo for AoC 2021 solutions",
+    "license": ["mit"],
     "autoload": {
         "psr-4": {
             "AdventOfCode\\": ["src/", "test/"]
