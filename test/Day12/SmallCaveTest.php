@@ -18,7 +18,7 @@ class SmallCaveTest extends BaseTest
         $cave = new SmallCave('a');
         $cave->addExit('b');
         $cave->addExit('c');
-        $this->assertEquals(['b', 'c'], $cave->getExits());
+        $this->assertEquals(['b', 'c'], $cave->getExits(false));
     }
 
     public function testGetExitsNoExitsLeftAfterVisit()
@@ -27,6 +27,6 @@ class SmallCaveTest extends BaseTest
         $cave->addExit('b');
         $cave->addExit('c');
         $cave->visit();
-        $this->assertEquals([], $cave->getExits());
+        $this->assertEquals([], $cave->getExits(false));
     }
 }

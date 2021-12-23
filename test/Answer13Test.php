@@ -15,7 +15,7 @@ class Answer13Test extends BaseTest
         $this->answer = new Answer13($this->logger);
     }
 
-    public function one()
+    public function testOne()
     {
         $input = [
             '6,10',

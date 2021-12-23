@@ -17,7 +17,7 @@ class BigCaveTest extends BaseTest
         $cave = new BigCave('AB');
         $cave->addExit('b');
         $cave->addExit('c');
-        $this->assertEquals(['b', 'c'], $cave->getExits());
+        $this->assertEquals(['b', 'c'], $cave->getExits(false));
     }
 
     public function testGetExitsOnSecondVisit()
@@ -27,6 +27,6 @@ class BigCaveTest extends BaseTest
         $cave->addExit('c');
         $cave->visit();
         $cave->useExit('b');
-        $this->assertEquals(['c'], $cave->getExits());
+        $this->assertEquals(['c'], $cave->getExits(false));
     }
 }
