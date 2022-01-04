@@ -154,7 +154,7 @@ class Answer19Test extends BaseTest
                 [68,-1246,-43],
                 2,
                 [-20,-1133,1061],
-                15,
+                13,
             ]
         ];
     }
