@@ -402,6 +402,9 @@ class Answer19Test extends BaseTest
         $this->assertEquals($beacons, $this->answer->findBeacons($scanners));
     }
 
+    /**
+     * @group slow
+     */
     public function testPositionScanners()
     {
         $input = [
@@ -559,6 +562,9 @@ class Answer19Test extends BaseTest
         $this->assertEquals($positions, $positionsFound);
     }
 
+    /**
+     * @group slow
+     */
     public function testOne()
     {
         $input = [
@@ -714,6 +720,9 @@ class Answer19Test extends BaseTest
         $this->assertEquals(3621, $this->answer->findLargestDistance($positions));
     }
 
+    /**
+     * @group slow
+     */
     public function testTwo()
     {
         $input = [

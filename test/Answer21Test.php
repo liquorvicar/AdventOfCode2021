@@ -27,6 +27,9 @@ class Answer21Test extends BaseTest
         $this->assertEquals(739785, $this->answer->one($input));
     }
 
+    /**
+     * @group slow
+     */
     public function testTwo()
     {
         $input = ['Player 1 starting position: 4', 'Player 2 starting position: 8'];
